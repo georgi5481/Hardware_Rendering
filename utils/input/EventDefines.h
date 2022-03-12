@@ -31,8 +31,25 @@ enum EventDataType{
 	FINGER_PRESS = 1792, 		//SDL_FINGERDOWN 	/* Finger pressed */
 	FINGER_RELEASE = 1793,		//SDL_FINGERUP 		/* Finger released */
 	FINGER_MOTION = 1794,		//SDL_FINGERMOTION 	/* Finger moved */
-};
-}
 
+	/*Gesture events*/
+	DOLLAR_GESTURE = 2048,		//SDL_DOLARGESTURE
+	DOLLAR_RECORD = 2049,		//SDL_DOLLARRECORD
+	MULTI_GESTURE = 2050,		//SDL_MULTIGESTURE
+
+	QUIT = 256,					//SDL_QUIT 			/*User requests quit*/
+	WINDOW = 512,				//SDL_WINDOWEVENT	/*Window state change (move the window positon)*/
+	TEXT_INPUT = 771,			//SDL_TEXTINPUT		/*Keyboard text input */
+	OS_LANGUAGE_CHANGED = 772,	//SDL_KEYMAPCHANGED
+
+	AUDIO_DEVICE_ADDED = 4352	//SDL_AUDIODEVICEADDED
+
+};
+}/*namespace EventType*/
+
+
+namespace Keyboard{
+
+}
 
 #endif /* UTILS_INPUT_EVENTDEFINES_H_ */
