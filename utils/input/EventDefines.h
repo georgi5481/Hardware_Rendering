@@ -53,7 +53,24 @@ enum EventDataType{
 
 
 namespace Keyboard{
+enum Key {
+	KEY_UNKNOWN =0	//SDL_UNKNOWN
 
+	KEY_BACKSPACE =8,	//SDLK_BACKSPACE
+	KEY_ENTER = 13, 	//SDLK_RETURN
+	KEY_ESCAPE = 27, 	//SDL_ESCAPE
+	KEY_SPACE = 32,		//SDL_SPACE
+	KEY_PERIOD = 46, 	//SDL_PERIOD
+	KEY_SLASH = 47,		//SDL_SLASH
+	KEY_0 = 48,
+	KEY_1 = 49,
+	KEY_2 = 50,
+	KEY_3 = 51,
+	KEY_4 = 52,
+	KEY_5 = 53,
+
+
+};
 }
 
 #endif /* UTILS_INPUT_EVENTDEFINES_H_ */
