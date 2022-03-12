@@ -62,12 +62,12 @@ enum Key {
 	KEY_SPACE = 32,		//SDL_SPACE
 	KEY_PERIOD = 46, 	//SDL_PERIOD
 	KEY_SLASH = 47,		//SDL_SLASH
-	KEY_0 = 48,
-	KEY_1 = 49,
-	KEY_2 = 50,
-	KEY_3 = 51,
-	KEY_4 = 52,
-	KEY_5 = 53,
+	KEY_0 = 48,		//SDLK_0
+	KEY_1 = 49,		//SDLK_1
+	KEY_2 = 50,		//SDLK_2
+	KEY_3 = 51,		//SDLK_3
+	KEY_4 = 52,		//SDLK_4
+	KEY_5 = 53,		//SDLK_5
 
 
 };
