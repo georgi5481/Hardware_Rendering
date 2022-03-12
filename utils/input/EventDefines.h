@@ -12,6 +12,10 @@
 
 //Forward Declaration
 
+
+/* The enum EventDataType is included in orer not to include the whole SDL_Event.h
+ * Not all events are listed here. You can extend it at any point of time.
+ */
 namespace EventType {
 enum EventDataType{
 	UNKNOWN = 0, //SDL_FIRSTEVENT,

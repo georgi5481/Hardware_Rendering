@@ -39,6 +39,8 @@ add_executable(
 	${_BASE_DIR}/sdl_utils/MonitorWindow.h	
 	${_BASE_DIR}/sdl_utils/Texture.cpp
 	${_BASE_DIR}/sdl_utils/Texture.h
+	${_BASE_DIR}/sdl_utils/InputEvent.cpp
+	${_BASE_DIR}/sdl_utils/InputEvent.h
 	
 	)
 
