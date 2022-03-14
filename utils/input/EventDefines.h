@@ -21,9 +21,9 @@ enum EventDataType{
 	UNKNOWN = 0, //SDL_FIRSTEVENT,
 
 	/*Keyboard events*/
-	KEYBOARD_PRESS = 768,	//SDL_KEYDOWN		/*Key pressed*/
-	KEYBOARD_RELEASE = 769,	//SDL_KEYUP			/*Key released*/
-	OS_TEXTEDITING = 770,	//SDL_TESTEDITING	/*Keyboard text editing*/
+	KEYBOARD_PRESS = 768,		//SDL_KEYDOWN			/*Key pressed*/
+	KEYBOARD_RELEASE = 769,		//SDL_KEYUP				/*Key released*/
+	OS_TEXTEDITING = 770,		//SDL_TESTEDITING		/*Keyboard text editing*/
 
 		/*Mouse events*/
 	MOUSE_MOTION = 1024,		//SDL_MOUSEMOTION 		/*Mouse moved*/
@@ -32,18 +32,18 @@ enum EventDataType{
 	MOUSE_WHEEL_MOTION = 1027,	//SDL_MOUSEWHEEL 		/*Mouse wheel motion*/
 
 	/*Touch events */
-	FINGER_PRESS = 1792, 		//SDL_FINGERDOWN 	/* Finger pressed */
-	FINGER_RELEASE = 1793,		//SDL_FINGERUP 		/* Finger released */
-	FINGER_MOTION = 1794,		//SDL_FINGERMOTION 	/* Finger moved */
+	FINGER_PRESS = 1792, 		//SDL_FINGERDOWN 		/* Finger pressed */
+	FINGER_RELEASE = 1793,		//SDL_FINGERUP 			/* Finger released */
+	FINGER_MOTION = 1794,		//SDL_FINGERMOTION 		/* Finger moved */
 
 	/*Gesture events*/
 	DOLLAR_GESTURE = 2048,		//SDL_DOLARGESTURE
 	DOLLAR_RECORD = 2049,		//SDL_DOLLARRECORD
 	MULTI_GESTURE = 2050,		//SDL_MULTIGESTURE
 
-	QUIT = 256,					//SDL_QUIT 			/*User requests quit*/
-	WINDOW = 512,				//SDL_WINDOWEVENT	/*Window state change (move the window positon)*/
-	TEXT_INPUT = 771,			//SDL_TEXTINPUT		/*Keyboard text input */
+	QUIT = 256,					//SDL_QUIT 				/*User requests quit*/
+	WINDOW = 512,				//SDL_WINDOWEVENT		/*Window state change (move the window positon)*/
+	TEXT_INPUT = 771,			//SDL_TEXTINPUT			/*Keyboard text input */
 	OS_LANGUAGE_CHANGED = 772,	//SDL_KEYMAPCHANGED
 
 	AUDIO_DEVICE_ADDED = 4352	//SDL_AUDIODEVICEADDED
@@ -62,16 +62,16 @@ enum Key {
 	KEY_SPACE = 32,		//SDL_SPACE
 	KEY_PERIOD = 46, 	//SDL_PERIOD
 	KEY_SLASH = 47,		//SDL_SLASH
-	KEY_0 = 48,		//SDLK_0
-	KEY_1 = 49,		//SDLK_1
-	KEY_2 = 50,		//SDLK_2
-	KEY_3 = 51,		//SDLK_3
-	KEY_4 = 52,		//SDLK_4
-	KEY_5 = 53,		//SDLK_5
-	KEY_6 = 54,		//SDLK_6
-	KEY_7 = 55,		//SDLK_7
-	KEY_8 = 56,		//SDLK_8
-	KEY_9 = 57,		//SDLK_9
+	KEY_0 = 48,			//SDLK_0
+	KEY_1 = 49,			//SDLK_1
+	KEY_2 = 50,			//SDLK_2
+	KEY_3 = 51,			//SDLK_3
+	KEY_4 = 52,			//SDLK_4
+	KEY_5 = 53,			//SDLK_5
+	KEY_6 = 54,			//SDLK_6
+	KEY_7 = 55,			//SDLK_7
+	KEY_8 = 56,			//SDLK_8
+	KEY_9 = 57,			//SDLK_9
 	KEY_COLON = 58,			//SDLK_COLON
 	KEY_SEMICOLON = 59,		//SDLK_SEMICOLON
 	KEY_LEFT_BRACKET = 91,	//SDLK_LEFTBRACKET
@@ -87,7 +87,7 @@ enum Key {
 	KEY_G = 'g',		//SDLK_e
 	KEY_H = 'h',		//SDLK_h
 	KEY_I = 'i',		//SDLK_i
-	KEY_G = 'g',		//SDLK_g
+	KEY_J = 'j',		//SDLK_g
 	KEY_K = 'k',		//SDLK_k
 	KEY_L = 'l',		//SDLK_l
 	KEY_M = 'm',		//SDLK_m

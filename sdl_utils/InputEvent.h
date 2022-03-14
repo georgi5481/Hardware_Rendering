@@ -9,6 +9,8 @@
 //3rd-party includes
 
 //Own includes
+#include"utils/input/EventDefines.h"
+#include"utils/drawings/Point.h"
 
 //Forward Declaration
 
@@ -16,6 +18,13 @@
 union SDL_Event;
 
 class InputEvent {
+public:
+	int32_t init();						//initialisation
+	void deiit();						//deinitialisation
+	bool pollEvent();					//poll (do i have event ? true = yes)
+	bool checkForExitRequiest()const;	//check for exit key
+
+private:
 /*Holds event position on the screen */
 	Point pos = Point::UNDEFINED;
 

@@ -1,5 +1,3 @@
-#include "MonitorWindow.h"
-
 //Corresponding header
 #include "MonitorWindow.h"
 
