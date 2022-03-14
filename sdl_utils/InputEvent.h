@@ -24,8 +24,7 @@ public:
 	bool pollEvent();					//poll (do i have event ? true = yes)
 	bool checkForExitRequiest()const;	//check for exit key
 
-private:
-/*Holds event position on the screen */
+	/*Holds event position on the screen */
 	Point pos = Point::UNDEFINED;
 
 	/* See EventDefines.h for more information*/
@@ -33,8 +32,12 @@ private:
 	uint8_t mouseButton = Mouse::UNKNOWN;
 	TouchEvent type = TouchEvent::UNKNOWN;
 
-	/*Holds the OS communication event system */
 
+private:
+
+	void setEventTypeInternal();
+
+	/*Holds the OS communication event system */
 	SDL_Event* _sdlEvent = nullptr;
 };
 
