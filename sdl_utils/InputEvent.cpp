@@ -45,10 +45,7 @@ bool InputEvent::pollEvent(){
 	return true;
 }
 
-bool InputEvent::checkForExitRequiest()const{
 
-return true;
-}
 
 void InputEvent::setEventTypeInternal(){
 	switch(_sdlEvent->type){
@@ -65,13 +62,13 @@ void InputEvent::setEventTypeInternal(){
 		break;
 
 	case EventType::MOUSE_PRESS:
-		key = Keyboard::KEY_UNKNOWN;	//will scan the key that was pressed
+		key = Keyboard::KEY_UNKNOWN;
 		mouseButton = _sdlEvent->button.button;
 		type = TouchEvent::TOUCH_PRESS;
 		break;
 
 	case EventType::FINGER_PRESS:
-		key = Keyboard::KEY_UNKNOWN;	//will scan the key that was pressed
+		key = Keyboard::KEY_UNKNOWN;
 		mouseButton = Mouse::UNKNOWN;
 		type = TouchEvent::TOUCH_PRESS;
 		break;
@@ -83,16 +80,27 @@ void InputEvent::setEventTypeInternal(){
 		break;
 
 	case EventType::FINGER_RELEASE:
-		key = Keyboard::KEY_UNKNOWN;	//will scan the key that was pressed
+		key = Keyboard::KEY_UNKNOWN;
 		mouseButton = Mouse::UNKNOWN;
 		type = TouchEvent::TOUCH_RELEASE;
 		break;
 
 		//X is pressed on the window(or CTRL-C signal is sent)
 	case EventType::QUIT:
+		key = Keyboard::KEY_UNKNOWN;
+		mouseButton = Mouse::UNKNOWN;
+		type = TouchEvent::UNKNOWN;
 		break;
 
 	default:
 		break;
 	}
+}
+
+
+bool InputEvent::checkForExitRequiest()const{
+
+return (_sdlEvent->type == EventType::QUIT) ||
+		(type== TouchEvent::KEYBOARD_PRESS && Keyboard::KEY_ESCAPE == key);
+
 }
