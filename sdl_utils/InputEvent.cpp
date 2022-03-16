@@ -26,7 +26,7 @@ int32_t InputEvent::init(){
 	return EXIT_SUCCESS;
 }
 
-void InputEvent::deiit(){
+void InputEvent::deinit(){
 
 	if(_sdlEvent != nullptr){
 		delete _sdlEvent;

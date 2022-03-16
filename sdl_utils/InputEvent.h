@@ -20,7 +20,7 @@ union SDL_Event;
 class InputEvent {
 public:
 	int32_t init();						//initialisation
-	void deiit();						//deinitialisation
+	void deinit();						//deinitialisation
 	bool pollEvent();					//poll (do i have event ? true = yes)
 	bool checkForExitRequiest()const;	//check for exit key
 
