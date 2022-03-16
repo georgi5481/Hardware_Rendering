@@ -10,6 +10,7 @@
 #include "sdl_utils/MonitorWindow.h"
 #include "sdl_utils/SDLLoader.h"
 #include "sdl_utils/Texture.h"
+#include "sdl_utils/InputEvent.h"
 
 static void draw(MonitorWindow& window,	SDL_Surface* image)
 {
@@ -72,10 +73,34 @@ static int32_t runAplication(){
 	MonitorWindow window;
 	SDL_Surface* image = nullptr;
 
+	InputEvent event;
+	event.init();
+
 	if(EXIT_SUCCESS != init(window, image)){
 			std::cerr << "init() failed" << std::endl;
 			return EXIT_FAILURE;
 		}
+
+while(true) {
+	if(event.pollEvent()){
+		if(event.type == TouchEvent::KEYBOARD_PRESS){
+			std::cout << "pressed key: " << (char)event.key << std::endl;
+		}
+		else if(event.type == TouchEvent::KEYBOARD_RELEASE){
+			std::cout << "released key: " << (char)event.key << std::endl;
+		}
+		else if(event.type == TouchEvent::TOUCH_PRESS){
+			std::cout << "mouse button idx pressed: " << event.mouseButton << std::endl;
+		}
+		else if(event.type == TouchEvent::TOUCH_RELEASE){
+			std::cout << "mouse button idx released: " << event.mouseButton << std::endl;
+		}
+		else {
+			std::cout << "event position X(" << event.pos.x << ") Y (" << event.pos.y << ")" << std::endl;
+		}
+	}
+}
+
 
 		draw(window, image);
 

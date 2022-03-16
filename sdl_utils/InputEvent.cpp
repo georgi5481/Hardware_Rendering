@@ -93,6 +93,9 @@ void InputEvent::setEventTypeInternal(){
 		break;
 
 	default:
+		key = Keyboard::KEY_UNKNOWN;
+		mouseButton = Mouse::UNKNOWN;
+		type = TouchEvent::UNKNOWN;
 		break;
 	}
 }
