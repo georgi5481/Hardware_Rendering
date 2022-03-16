@@ -31,6 +31,8 @@ add_executable(
 	${_BASE_DIR}/utils/drawings/Rectangle.h
 	${_BASE_DIR}/utils/drawings/Rectangle.cpp
 
+	${_BASE_DIR}/Engine/Engine.h
+	${_BASE_DIR}/Engine/Engine.cpp
 	
 	${_BASE_DIR}/main.cpp
 	${_BASE_DIR}/sdl_utils/SDLLoader.h
@@ -41,7 +43,6 @@ add_executable(
 	${_BASE_DIR}/sdl_utils/Texture.h
 	${_BASE_DIR}/sdl_utils/InputEvent.cpp
 	${_BASE_DIR}/sdl_utils/InputEvent.h
-	
 	)
 
 set_target_cpp_standard( ${PROJECT_NAME} 17)

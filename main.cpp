@@ -8,9 +8,6 @@
 
 //own include
 #include "sdl_utils/MonitorWindow.h"
-#include "sdl_utils/SDLLoader.h"
-#include "sdl_utils/Texture.h"
-#include "sdl_utils/InputEvent.h"
 
 static void draw(MonitorWindow& window,	SDL_Surface* image)
 {
