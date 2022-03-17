@@ -15,7 +15,7 @@
 class SDLLoader {
 public:
 	SDLLoader() = delete;
-	virtual ~SDLLoader() = default;
+	~SDLLoader() = default;
 
 	static int32_t init();
 
