@@ -9,7 +9,8 @@
 
 //3rd-party includes
 #include<SDL_surface.h>
-#include<SDL_timer.h>
+#include<thread>
+
 //Own includes
 #include "sdl_utils/Texture.h"
 
@@ -43,17 +44,6 @@ int32_t Engine::init(){
 return EXIT_SUCCESS;
 }
 
-void Engine::deinit(){
-	Texture::freeSurface(_image);
-
-	_window.deinit();
-	_event.deinit();
-}
-
-void Engine::start(){
-
-}
-
 
 int32_t Engine::loadResources(){
 	const std::string filePath = "../resources/hello.png";	//get the path to the file we need
@@ -67,14 +57,65 @@ int32_t Engine::loadResources(){
 }
 
 
-void Engine::draw(){
+void Engine::deinit(){
+	Texture::freeSurface(_image);
 
+	_window.deinit();
+	_event.deinit();
+}
+
+void Engine::start(){
+	mainLoop();
+
+}
+
+void Engine::mainLoop(){
+while(true){
+	const bool shouldExit = processFrame();
+
+		if(shouldExit){
+			break;
+		}
+
+		limitFPS();
+	}
+}
+
+void Engine::drawFrame(){
 	_screenSurface = _window.getWindowSurface();
 	SDL_BlitSurface(_image, nullptr, _screenSurface, nullptr);
 	_window.updateWindowSurface();
 
-	SDL_Delay(5000);
 }
+
+
+
+bool Engine::processFrame(){
+	while(_event.pollEvent()){
+		if(_event.checkForExitRequiest()){
+			return true;
+		}
+
+		handleEvent();
+	}
+
+	drawFrame();
+
+	return false;
+}
+
+
+void Engine::limitFPS(){
+	using namespace std::literals;
+std::this_thread::sleep_for(std::chrono::milliseconds(15));
+}
+
+
+void Engine::handleEvent(){
+
+}
+
+
 /*
 
 while(true) {

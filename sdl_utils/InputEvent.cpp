@@ -81,15 +81,15 @@ void InputEvent::setEventTypeInternal(){
 
 	case EventType::FINGER_RELEASE:
 		key = Keyboard::KEY_UNKNOWN;
-		mouseButton = Mouse::UNKNOWN;
+		mouseButton = _sdlEvent->button.button;
 		type = TouchEvent::TOUCH_RELEASE;
 		break;
 
 		//X is pressed on the window(or CTRL-C signal is sent)
 	case EventType::QUIT:
+		type = TouchEvent::UNKNOWN;
 		key = Keyboard::KEY_UNKNOWN;
 		mouseButton = Mouse::UNKNOWN;
-		type = TouchEvent::UNKNOWN;
 		break;
 
 	default:
@@ -103,7 +103,5 @@ void InputEvent::setEventTypeInternal(){
 
 bool InputEvent::checkForExitRequiest()const{
 
-return (_sdlEvent->type == EventType::QUIT) ||
-		(type== TouchEvent::KEYBOARD_PRESS && Keyboard::KEY_ESCAPE == key);
-
+return  EventType::QUIT == _sdlEvent->type || Keyboard::KEY_ESCAPE == key;
 }

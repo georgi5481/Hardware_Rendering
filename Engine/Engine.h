@@ -20,9 +20,15 @@ public:
 	int32_t init();
 	void deinit();
 	void start();
-	void draw();
 
 private:
+	void mainLoop();
+	void drawFrame();
+	bool processFrame();
+	void handleEvent();
+
+	void limitFPS();
+
 	int32_t loadResources();
 
 	MonitorWindow _window;

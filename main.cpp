@@ -23,7 +23,7 @@ Engine engine;
 		}
 
 
-		engine.draw();
+		engine.start();
 
 		engine.deinit();
 
