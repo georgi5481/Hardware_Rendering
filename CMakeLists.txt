@@ -30,11 +30,12 @@ add_executable(
 	${_BASE_DIR}/utils/drawings/Point.cpp
 	${_BASE_DIR}/utils/drawings/Rectangle.h
 	${_BASE_DIR}/utils/drawings/Rectangle.cpp
+	${_BASE_DIR}/utils/thread/ThreadUtils.h
+	${_BASE_DIR}/utils/thread/ThreadUtils.cpp
 
 	${_BASE_DIR}/Engine/Engine.h
 	${_BASE_DIR}/Engine/Engine.cpp
-	
-	${_BASE_DIR}/main.cpp
+
 	${_BASE_DIR}/sdl_utils/SDLLoader.h
 	${_BASE_DIR}/sdl_utils/SDLLoader.cpp 
 	${_BASE_DIR}/sdl_utils/MonitorWindow.cpp
@@ -43,6 +44,8 @@ add_executable(
 	${_BASE_DIR}/sdl_utils/Texture.h
 	${_BASE_DIR}/sdl_utils/InputEvent.cpp
 	${_BASE_DIR}/sdl_utils/InputEvent.h
+	
+	${_BASE_DIR}/main.cpp
 	)
 
 set_target_cpp_standard( ${PROJECT_NAME} 17)
