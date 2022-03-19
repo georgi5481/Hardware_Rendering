@@ -107,8 +107,8 @@ bool Engine::processFrame(){
 
 
 void Engine::limitFPS(){
-	using namespace std::literals;
-	std::this_thread::sleep_for(std::chrono::milliseconds(15));
+		//15 miliseconds = 15000 microseconds
+	ThreadUtils::sleepFor(15000);
 }
 
 

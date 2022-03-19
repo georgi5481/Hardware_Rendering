@@ -32,6 +32,8 @@ add_executable(
 	${_BASE_DIR}/utils/drawings/Rectangle.cpp
 	${_BASE_DIR}/utils/thread/ThreadUtils.h
 	${_BASE_DIR}/utils/thread/ThreadUtils.cpp
+	${_BASE_DIR}/utils/Time/Time.h
+	${_BASE_DIR}/utils/Time/Time.cpp
 
 	${_BASE_DIR}/Engine/Engine.h
 	${_BASE_DIR}/Engine/Engine.cpp
