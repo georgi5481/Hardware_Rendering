@@ -38,6 +38,9 @@ int32_t Engine::init(){
 			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;
 			return EXIT_FAILURE;
 	}
+
+	_currChosenImage = _imageSurfaces[ALL_KEYS];
+
 	if (EXIT_SUCCESS != _event.init()){	//load the resources in the window
 			std::cerr << "InputEvent failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
@@ -48,13 +51,20 @@ return EXIT_SUCCESS;
 
 
 int32_t Engine::loadResources(){
-const std::array<std::string> filePaths[COUNT];
+	const std::array<std::string, COUNT> filePaths ={
+			"../resources/up.png",
+			"../resources/down.png",
+			"../resources/left.png",
+			"../resources/right.png",
+			"../resources/press_keys.png"
+	};
 
-	const std::string filePath = "../resources/hello.png";	//get the path to the file we need
+	for(int32_t i = 0; i < COUNT; ++i){
+		if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePaths[i], _imageSurfaces[i])){
+			std::cerr << "createSurfaceFromFile failed for file : " << filePaths[i] << std::endl;
+		return EXIT_FAILURE;
+		}
 
-	if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePath, _image)){
-		std::cerr << "createSurfaceFromFile failed for file : " << filePath << std::endl;
-	return EXIT_FAILURE;
 	}
 
 	return EXIT_SUCCESS;
@@ -62,8 +72,9 @@ const std::array<std::string> filePaths[COUNT];
 
 
 void Engine::deinit(){
-	Texture::freeSurface(_image);
-
+	for(int32_t i = 0; i < COUNT; ++i){
+		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
+	}
 	_window.deinit();
 	_event.deinit();
 }
@@ -91,7 +102,7 @@ while(true){
 
 void Engine::drawFrame(){
 	_screenSurface = _window.getWindowSurface();
-	SDL_BlitSurface(_image, nullptr, _screenSurface, nullptr);
+	SDL_BlitSurface(_currChosenImage, nullptr, _screenSurface, nullptr);
 	_window.updateWindowSurface();
 
 }

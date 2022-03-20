@@ -42,8 +42,8 @@ private:
 	SDL_Surface* _screenSurface = nullptr;
 
 	//game specific logic
-	SDL_Surface* _currChosenImage = nullptr;
-	SDL_Surface* _imageSurface[COUNT]{};
+	SDL_Surface* _currChosenImage = nullptr;	//the image we are presenting atm
+	SDL_Surface* _imageSurfaces[COUNT]{};		//an array of our Surfaces loaded basically in the heap
 };
 
 #endif /* ENGINE_ENGINE_H_ */
