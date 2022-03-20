@@ -138,29 +138,58 @@ void Engine::limitFPS(int64_t elapsedTimeMicroSeconds){
 
 
 void Engine::handleEvent(){
+	if(TouchEvent::KEYBOARD_RELEASE == _event.type){	//sets to zero if we stoped pressing the key
+		_currChosenImage = _imageSurfaces[ALL_KEYS];
+	}
 
+	if(TouchEvent::KEYBOARD_PRESS != _event.type){	//check if our event is a keyboard event in the first place
+		return;
+	}
+
+		switch(_event.key){
+		case Keyboard::KEY_UP:
+		_currChosenImage = _imageSurfaces[UP];
+		break;
+
+		case Keyboard::KEY_DOWN:
+		_currChosenImage = _imageSurfaces[DOWN];
+		break;
+
+		case Keyboard::KEY_LEFT:
+		_currChosenImage = _imageSurfaces[LEFT];
+		break;
+
+		case Keyboard::KEY_RIGHT:
+		_currChosenImage = _imageSurfaces[RIGHT];
+		break;
+
+		default:
+			break;
+		}
 }
-
 
 /*
+	while(true) {
+		if(event.pollEvent()){
+			if(event.type == TouchEvent::KEYBOARD_PRESS){
+				std::cout << "pressed key: " << (char)event.key << std::endl;
+			}
+			else if(event.type == TouchEvent::KEYBOARD_RELEASE){
+				std::cout << "released key: " << (char)event.key << std::endl;
+			}
+			else if(event.type == TouchEvent::TOUCH_PRESS){
+				std::cout << "mouse button idx pressed: " << event.mouseButton << std::endl;
+			}
+			else if(event.type == TouchEvent::TOUCH_RELEASE){
+				std::cout << "mouse button idx released: " << event.mouseButton << std::endl;
+			}
+			else {
+				std::cout << "event position X(" << event.pos.x << ") Y (" << event.pos.y << ")" << std::endl;
+			}
+		}
+	}*/
 
-while(true) {
-	if(event.pollEvent()){
-		if(event.type == TouchEvent::KEYBOARD_PRESS){
-			std::cout << "pressed key: " << (char)event.key << std::endl;
-		}
-		else if(event.type == TouchEvent::KEYBOARD_RELEASE){
-			std::cout << "released key: " << (char)event.key << std::endl;
-		}
-		else if(event.type == TouchEvent::TOUCH_PRESS){
-			std::cout << "mouse button idx pressed: " << event.mouseButton << std::endl;
-		}
-		else if(event.type == TouchEvent::TOUCH_RELEASE){
-			std::cout << "mouse button idx released: " << event.mouseButton << std::endl;
-		}
-		else {
-			std::cout << "event position X(" << event.pos.x << ") Y (" << event.pos.y << ")" << std::endl;
-		}
-	}
-}
-*/
+
+
+
+
