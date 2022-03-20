@@ -6,6 +6,7 @@
 //C++ system includes
 #include<cstdint>
 #include<iostream>
+#include<array>
 
 //3rd-party includes
 #include<SDL_surface.h>
@@ -14,7 +15,7 @@
 //Own includes
 #include "utils/thread/ThreadUtils.h"
 #include "sdl_utils/Texture.h"
-
+#include "utils/Time/Time.h"
 
 
 int32_t Engine::init(){
@@ -47,10 +48,12 @@ return EXIT_SUCCESS;
 
 
 int32_t Engine::loadResources(){
+const std::array<std::string> filePaths[COUNT];
+
 	const std::string filePath = "../resources/hello.png";	//get the path to the file we need
 
 	if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePath, _image)){
-		std::cerr << "createSurfaceFromFile failer for file : " << filePath << std::endl;
+		std::cerr << "createSurfaceFromFile failed for file : " << filePath << std::endl;
 	return EXIT_FAILURE;
 	}
 
@@ -71,14 +74,18 @@ void Engine::start(){
 }
 
 void Engine::mainLoop(){
+	Time time;
+
 while(true){
+	time.getElapsed().toMicroseconds();
+
 	const bool shouldExit = processFrame();
 
 		if(shouldExit){
 			break;
 		}
 
-		limitFPS();
+		limitFPS(time.getElapsed().toMicroseconds());
 	}
 }
 
@@ -106,10 +113,17 @@ bool Engine::processFrame(){
 }
 
 
-void Engine::limitFPS(){
-		//15 miliseconds = 15000 microseconds
-	ThreadUtils::sleepFor(15000);
+void Engine::limitFPS(int64_t elapsedTimeMicroSeconds){
+	const int64_t maxFrames = 30;
+	const int64_t microSecondsInASecond = 1000000;
+	const int64_t microSecondsPerFrame = microSecondsInASecond / maxFrames;
+	const int64_t sleepDurationMicroSeconds = microSecondsPerFrame - elapsedTimeMicroSeconds;
+
+	if(sleepDurationMicroSeconds > 0){
+	ThreadUtils::sleepFor(sleepDurationMicroSeconds);
+	}
 }
+
 
 
 void Engine::handleEvent(){

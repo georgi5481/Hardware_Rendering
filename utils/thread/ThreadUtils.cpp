@@ -3,6 +3,7 @@
 //C system includes
 
 //C++ system includes
+#include<cstdint>
 #include<thread>
 //3rd-party includes
 
@@ -19,6 +20,6 @@ void ThreadUtils::sleepFor(int64_t microseconds){
 	const DWORD milliseconds = static_cast<DWORD>(micoseconds/1000);
 	Sleep(milliseconds); //sleep for milliseconds
 #else
-	std::this_thread::sleep_for(std::chrono::microseconds(int64_t microseconds));
+	std::this_thread::sleep_for(std::chrono::microseconds(microseconds));
 #endif
 }

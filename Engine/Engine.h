@@ -15,6 +15,12 @@
 
 //Forward Declaration
 
+
+enum Images{
+	UP, DOWN, LEFT, RIGHT, ALL_KEYS, COUNT
+};
+
+
 class Engine {
 public:
 	int32_t init();
@@ -27,14 +33,17 @@ private:
 	bool processFrame();
 	void handleEvent();
 
-	void limitFPS();
+	void limitFPS(int64_t elapsedTimeMicroSeconds);
 
 	int32_t loadResources();
 
 	MonitorWindow _window;
 	InputEvent _event;
 	SDL_Surface* _screenSurface = nullptr;
-	SDL_Surface* _image = nullptr;
+
+	//game specific logic
+	SDL_Surface* _currChosenImage = nullptr;
+	SDL_Surface* _imageSurface[COUNT]{};
 };
 
 #endif /* ENGINE_ENGINE_H_ */
