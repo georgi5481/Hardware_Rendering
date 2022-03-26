@@ -1,18 +1,15 @@
-/*
- * EngineConfigLoader.cpp
- *
- *  Created on: Mar 25, 2022
- *      Author: georgi
- */
-
+//Corresponding header
 #include "EngineConfigLoader.h"
+//C system includes
 
-EngineConfigLoader::EngineConfigLoader() {
-	// TODO Auto-generated constructor stub
+//C++ system includes
+#include<cstdint>
 
+//3rd-party includes
+
+//Own includes
+
+EngineConfig loadConfig(){
+	EngineConfig cfg;
+	return cfg;
 }
-
-EngineConfigLoader::~EngineConfigLoader() {
-	// TODO Auto-generated destructor stub
-}
-

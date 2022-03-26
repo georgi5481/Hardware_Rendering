@@ -1,3 +1,6 @@
+#ifndef SDL_UTILS_MONITORWINDOW_H_
+#define SDL_UTILS_MONITORWINDOW_H_
+
 //C system includes
 
 //C++ system includes
@@ -8,28 +11,14 @@
 //Own includes
 #include "utils/drawings/Rectangle.h"
 #include "utils/drawings/Point.h"
+#include "sdl_utils/config/MonitorWindowCfg.h"
 
 //Forward Declaration
 
-#ifndef SDL_UTILS_MONITORWINDOW_H_
-#define SDL_UTILS_MONITORWINDOW_H_
+
 
 struct SDL_Window;
 struct SDL_Surface;	//declaring these just so we can create void pointers to a struct/class
-
-enum WindowFlags{	//these concrete numbers comes from the SDL flags
-	WINDOW_SHOWN = 4,			//SDL_WindowShown
-	WINDOW_FULLSCREEN = 4097,	//SDL_WindowFullscreen
-	WINDOW_BORDERLESS = 16		//Make the same window but without borders
-};
-
-struct MonitorWindowCfg{
-	 std::string windowName;
-	 Point windowPosition = Point::UNDEFINED;
-	 int32_t windowWidth = 0;
-	 int32_t windowHeight = 0;
-	 WindowFlags windowFlags = WINDOW_SHOWN;
-};
 
 class MonitorWindow {
 public:

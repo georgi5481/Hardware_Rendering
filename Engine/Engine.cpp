@@ -16,10 +16,16 @@
 #include "utils/thread/ThreadUtils.h"
 #include "sdl_utils/Texture.h"
 #include "utils/Time/Time.h"
-
+#include "Engine/EngineConfigLoader.h"
 
 int32_t Engine::init(){
+	MonitorWindowCfg cfg;
 
+	//using SDL_WINDOW_SHOWN as flag
+	cfg.windowName = "SDL_Runtime";
+	cfg.windowWidth = 640;
+	cfg.windowHeight = 480;
+	cfg.windowFlags = WINDOW_SHOWN;
 
 	if (EXIT_SUCCESS != _window.init(cfg)){	//load the resources in the window
 			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;

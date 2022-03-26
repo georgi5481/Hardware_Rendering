@@ -9,14 +9,13 @@
 //3rd-party includes
 
 //Own includes
-#include "sdl_utils/MonitorWindow.h"
+#include "sdl_utils/config/MonitorWindowCfg.h"
 
 //Forward Declaration
 
 struct EngineConfig{
-	MonitorWindow windowCfg;
+	MonitorWindowCfg windowCfg;
 	//soon to populate other configs
-
 };
 
 

@@ -1,13 +1,28 @@
 #ifndef ENGINE_ENGINECONFIGLOADER_H_
 #define ENGINE_ENGINECONFIGLOADER_H_
 
+//C system includes
+
+//C++ system includes
+#include<cstdint>
+
+//3rd-party includes
+
+//Own includes
+
+//Forward Declaration
+
+#include "Engine/config/EngineConfig.h"
+
+
 class EngineConfigLoader {
 public:
 
-	EngineConfigLoader();
+	EngineConfigLoader() = delete;
 
-	~EngineConfigLoader();
+	~EngineConfigLoader() = default;
 
+	static EngineConfig loadConfig();
 };
 
 #endif /* ENGINE_ENGINECONFIGLOADER_H_ */

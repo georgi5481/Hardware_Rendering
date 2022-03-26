@@ -37,7 +37,10 @@ add_executable(
 
 	${_BASE_DIR}/Engine/Engine.h
 	${_BASE_DIR}/Engine/Engine.cpp
-
+	${_BASE_DIR}/Engine/config/EngineConfig.h
+	${_BASE_DIR}/Engine/EngineConfigLoader.h
+	${_BASE_DIR}/Engine/EngineConfigLoader.cpp 
+	
 	${_BASE_DIR}/sdl_utils/SDLLoader.h
 	${_BASE_DIR}/sdl_utils/SDLLoader.cpp 
 	${_BASE_DIR}/sdl_utils/MonitorWindow.cpp
