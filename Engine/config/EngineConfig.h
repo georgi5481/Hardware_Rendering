@@ -15,7 +15,7 @@
 
 struct EngineConfig{
 	MonitorWindowCfg windowCfg;
-	//soon to populate other configs
+
 };
 
 
