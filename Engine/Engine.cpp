@@ -6,7 +6,6 @@
 //C++ system includes
 #include<cstdint>
 #include<iostream>
-#include<array>
 
 //3rd-party includes
 #include<SDL_surface.h>
@@ -15,7 +14,6 @@
 //Own includes
 #include "Engine/config/EngineConfig.h"
 #include "utils/thread/ThreadUtils.h"
-#include "sdl_utils/Texture.h"
 #include "utils/Time/Time.h"
 #include "Engine/EngineConfigLoader.h"
 
@@ -41,25 +39,6 @@ return EXIT_SUCCESS;
 }
 
 
-int32_t Engine::loadResources(){
-	const std::array<std::string, COUNT> filePaths ={
-			"../resources/up.png",
-			"../resources/down.png",
-			"../resources/left.png",
-			"../resources/right.png",
-			"../resources/press_keys.png"
-	};
-
-	for(int32_t i = 0; i < COUNT; ++i){
-		if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePaths[i], _imageSurfaces[i])){
-			std::cerr << "createSurfaceFromFile failed for file : " << filePaths[i] << std::endl;
-		return EXIT_FAILURE;
-		}
-
-	}
-
-	return EXIT_SUCCESS;
-}
 
 
 void Engine::deinit(){

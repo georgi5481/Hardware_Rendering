@@ -15,9 +15,7 @@
 //Forward Declaration
 struct EngineConfig;
 
-enum Images{
-	UP, DOWN, LEFT, RIGHT, ALL_KEYS, COUNT
-};
+
 
 
 class Engine {
@@ -34,15 +32,10 @@ private:
 
 	void limitFPS(int64_t elapsedTimeMicroSeconds);
 
-	int32_t loadResources();
-
 	MonitorWindow _window;
 	InputEvent _event;
 	SDL_Surface* _screenSurface = nullptr;
 
-	//game specific logic
-	SDL_Surface* _currChosenImage = nullptr;	//the image we are presenting atm
-	SDL_Surface* _imageSurfaces[COUNT]{};		//an array of our Surfaces loaded basically in the heap
 };
 
 #endif /* ENGINE_ENGINE_H_ */
