@@ -9,12 +9,11 @@
 //3rd-party includes
 
 //Own includes
-
 #include "sdl_utils/MonitorWindow.h"
 #include "sdl_utils/InputEvent.h"
 
 //Forward Declaration
-
+struct EngineConfig;
 
 enum Images{
 	UP, DOWN, LEFT, RIGHT, ALL_KEYS, COUNT
@@ -23,7 +22,7 @@ enum Images{
 
 class Engine {
 public:
-	int32_t init();
+	int32_t init(const EngineConfig& cfg);
 	void deinit();
 	void start();
 

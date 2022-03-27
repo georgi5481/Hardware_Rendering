@@ -13,11 +13,12 @@
 #include "sdl_utils/SDLLoader.h"
 #include "sdl_utils/MonitorWindow.h"
 #include "Engine/Engine.h"
+#include "Engine/EngineConfigLoader.h"
 
 static int32_t runAplication(){
 Engine engine;
 
-	if(EXIT_SUCCESS != engine.init()){
+	if(EXIT_SUCCESS != engine.init(EngineConfigLoader::loadConfig())){
 			std::cerr << "Engine init() failed" << std::endl;
 			return EXIT_FAILURE;
 		}
