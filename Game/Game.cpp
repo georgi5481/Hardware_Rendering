@@ -11,7 +11,30 @@
 
 //Own components includes
 #include "sdl_utils/Texture.h"
+#include "sdl_utils/InputEvent.h"
 
+
+int32_t Game::init(){
+	if (EXIT_SUCCESS != loadResources()){	//load the resources in the window
+			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;
+			return EXIT_FAILURE;
+	}
+
+	_currChosenImage = _imageSurfaces[ALL_KEYS];
+
+
+	return EXIT_SUCCESS;
+}
+
+void Game::deinite(){
+
+}
+void Game::draw(){
+
+}
+void Game::handleEvent(const InputEvent& e){
+
+}
 
 
 int32_t Game::loadResources(){
