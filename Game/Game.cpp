@@ -16,7 +16,7 @@
 
 int32_t Game::init(){
 	if (EXIT_SUCCESS != loadResources()){	//load the resources in the window
-			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;
+			std::cerr << "loadResources() failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
 
