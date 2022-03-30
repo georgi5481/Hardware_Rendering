@@ -9,6 +9,7 @@
 //3rd-party includes
 
 //Own includes
+#include "Game/Game.h"
 #include "sdl_utils/MonitorWindow.h"
 #include "sdl_utils/InputEvent.h"
 
@@ -35,7 +36,7 @@ private:
 	MonitorWindow _window;
 	InputEvent _event;
 	SDL_Surface* _screenSurface = nullptr;
-
+	Game _game;
 };
 
 #endif /* ENGINE_ENGINE_H_ */

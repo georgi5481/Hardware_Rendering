@@ -29,6 +29,13 @@ int32_t Engine::init(const EngineConfig& cfg){
 			return EXIT_FAILURE;
 	}
 
+
+	if (EXIT_SUCCESS != _game.init()){	//load the resources in the window
+			std::cerr << "_game.init() failed." << std::endl;
+			return EXIT_FAILURE;
+	}
+
+
 return EXIT_SUCCESS;
 }
 
@@ -36,9 +43,7 @@ return EXIT_SUCCESS;
 
 
 void Engine::deinit(){
-	for(int32_t i = 0; i < COUNT; ++i){
-		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
-	}
+
 	_window.deinit();
 	_event.deinit();
 }
@@ -66,7 +71,7 @@ while(true){
 
 void Engine::drawFrame(){
 	_screenSurface = _window.getWindowSurface();
-	SDL_BlitSurface(_currChosenImage, nullptr, _screenSurface, nullptr);
+	//SDL_BlitSurface(_currChosenImage, nullptr, _screenSurface, nullptr);
 	_window.updateWindowSurface();
 
 }
@@ -89,9 +94,9 @@ bool Engine::processFrame(){
 
 
 void Engine::limitFPS(int64_t elapsedTimeMicroSeconds){
-	const int64_t maxFrames = 30;
-	const int64_t microSecondsInASecond = 1000000;
-	const int64_t microSecondsPerFrame = microSecondsInASecond / maxFrames;
+	constexpr auto maxFrames = 30;
+	constexpr auto microSecondsInASecond = 1000000;
+	constexpr auto microSecondsPerFrame = microSecondsInASecond / maxFrames;
 	const int64_t sleepDurationMicroSeconds = microSecondsPerFrame - elapsedTimeMicroSeconds;
 
 	if(sleepDurationMicroSeconds > 0){
@@ -102,34 +107,7 @@ void Engine::limitFPS(int64_t elapsedTimeMicroSeconds){
 
 
 void Engine::handleEvent(){
-	if(TouchEvent::KEYBOARD_RELEASE == _event.type){	//sets to zero if we stoped pressing the key
-		_currChosenImage = _imageSurfaces[ALL_KEYS];
-	}
-
-	if(TouchEvent::KEYBOARD_PRESS != _event.type){	//check if our event is a keyboard event in the first place
-		return;
-	}
-
-		switch(_event.key){
-		case Keyboard::KEY_UP:
-		_currChosenImage = _imageSurfaces[UP];
-		break;
-
-		case Keyboard::KEY_DOWN:
-		_currChosenImage = _imageSurfaces[DOWN];
-		break;
-
-		case Keyboard::KEY_LEFT:
-		_currChosenImage = _imageSurfaces[LEFT];
-		break;
-
-		case Keyboard::KEY_RIGHT:
-		_currChosenImage = _imageSurfaces[RIGHT];
-		break;
-
-		default:
-			break;
-		}
+_game.handleEvent(_event);
 }
 
 /*

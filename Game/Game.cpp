@@ -27,13 +27,42 @@ int32_t Game::init(){
 }
 
 void Game::deinite(){
-
+	for(int32_t i = 0; i < COUNT; ++i){
+		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
+	}
 }
 void Game::draw(){
 
 }
 void Game::handleEvent(const InputEvent& e){
+	if(TouchEvent::KEYBOARD_RELEASE == e.type){	//sets to zero if we stoped pressing the key
+		_currChosenImage = _imageSurfaces[ALL_KEYS];
+	}
 
+	if(TouchEvent::KEYBOARD_PRESS != e.type){	//check if our event is a keyboard event in the first place
+		return;
+	}
+
+		switch(e.key){
+		case Keyboard::KEY_UP:
+		_currChosenImage = _imageSurfaces[UP];
+		break;
+
+		case Keyboard::KEY_DOWN:
+		_currChosenImage = _imageSurfaces[DOWN];
+		break;
+
+		case Keyboard::KEY_LEFT:
+		_currChosenImage = _imageSurfaces[LEFT];
+		break;
+
+		case Keyboard::KEY_RIGHT:
+		_currChosenImage = _imageSurfaces[RIGHT];
+		break;
+
+		default:
+			break;
+		}
 }
 
 
