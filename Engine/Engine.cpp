@@ -43,7 +43,7 @@ return EXIT_SUCCESS;
 
 
 void Engine::deinit(){
-
+	_game.deinit();
 	_window.deinit();
 	_event.deinit();
 }

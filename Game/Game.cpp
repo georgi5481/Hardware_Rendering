@@ -26,7 +26,7 @@ int32_t Game::init(){
 	return EXIT_SUCCESS;
 }
 
-void Game::deinite(){
+void Game::deinit(){
 	for(int32_t i = 0; i < COUNT; ++i){
 		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
 	}

@@ -21,7 +21,7 @@ class Game {
 public:
 
 	int32_t init();
-	void deinite();
+	void deinit();
 	void draw();
 	void handleEvent(const InputEvent& e);
 
