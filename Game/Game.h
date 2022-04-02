@@ -28,7 +28,7 @@ public:
 
 private:
 	enum Images{
-		UP, DOWN, LEFT, RIGHT, ALL_KEYS, COUNT
+		UP, DOWN, LEFT, RIGHT, PRESS_KEYS, LAYER_2, COUNT
 	};
 
 	int32_t loadResources();

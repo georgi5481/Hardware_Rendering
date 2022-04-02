@@ -20,7 +20,7 @@ int32_t Game::init(){
 			return EXIT_FAILURE;
 	}
 
-	_currChosenImage = _imageSurfaces[ALL_KEYS];
+	_currChosenImage = _imageSurfaces[PRESS_KEYS];
 
 
 	return EXIT_SUCCESS;
@@ -31,13 +31,14 @@ void Game::deinit(){
 		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
 	}
 }
+
 void Game::draw(std::vector<SDL_Surface*>& outImages){
 	outImages.push_back(_currChosenImage);
 }
 
 void Game::handleEvent(const InputEvent& e){
 	if(TouchEvent::KEYBOARD_RELEASE == e.type){	//sets to zero if we stoped pressing the key
-		_currChosenImage = _imageSurfaces[ALL_KEYS];
+		_currChosenImage = _imageSurfaces[PRESS_KEYS];
 	}
 
 	if(TouchEvent::KEYBOARD_PRESS != e.type){	//check if our event is a keyboard event in the first place
@@ -73,7 +74,8 @@ int32_t Game::loadResources(){
 			"../resources/down.png",
 			"../resources/left.png",
 			"../resources/right.png",
-			"../resources/press_keys.png"
+			"../resources/press_keys.png",
+			"../resources/layer_2.png"
 	};
 
 	for(int32_t i = 0; i < COUNT; ++i){
