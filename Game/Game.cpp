@@ -31,9 +31,10 @@ void Game::deinit(){
 		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
 	}
 }
-void Game::draw(){
+void Game::draw(std::vector<SDL_Surface*>& outImages){
 
 }
+
 void Game::handleEvent(const InputEvent& e){
 	if(TouchEvent::KEYBOARD_RELEASE == e.type){	//sets to zero if we stoped pressing the key
 		_currChosenImage = _imageSurfaces[ALL_KEYS];

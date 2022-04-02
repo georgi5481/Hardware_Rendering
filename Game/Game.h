@@ -4,7 +4,8 @@
 //C system includes
 
 //C++ system includes
-#include<cstdint>
+#include <cstdint>
+#include <vector>
 
 //3rd-party includes
 
@@ -22,7 +23,7 @@ public:
 
 	int32_t init();
 	void deinit();
-	void draw();
+	void draw(std::vector<SDL_Surface*>& outImages);
 	void handleEvent(const InputEvent& e);
 
 private:
