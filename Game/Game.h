@@ -27,9 +27,7 @@ public:
 	void handleEvent(const InputEvent& e);
 
 private:
-	enum Images{
-		UP, DOWN, LEFT, RIGHT, PRESS_KEYS, LAYER_2, COUNT
-	};
+
 
 	int32_t loadResources();
 
