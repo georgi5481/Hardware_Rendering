@@ -32,7 +32,7 @@ void Game::deinit(){
 	}
 }
 void Game::draw(std::vector<SDL_Surface*>& outImages){
-
+	outImages.push_back(_currChosenImage);
 }
 
 void Game::handleEvent(const InputEvent& e){

@@ -70,9 +70,20 @@ while(true){
 }
 
 void Engine::drawFrame(){
+
+	std::vector<SDL_Surface*> images;
+
+	_game.draw(images);
 	_screenSurface = _window.getWindowSurface();
-	//SDL_BlitSurface(_currChosenImage, nullptr, _screenSurface, nullptr);
-	_window.updateWindowSurface();
+
+
+	for(auto& image : images){
+		SDL_BlitSurface(image, nullptr, _screenSurface, nullptr);
+
+	}
+
+		_window.updateWindowSurface();
+
 
 }
 
