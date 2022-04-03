@@ -4,7 +4,6 @@
 
 //C++ system includes
 #include<cstdint>
-#include<array>
 #include<iostream>
 //3rd-party includes
 #include "sdl_utils/config/MonitorWindowCfg.h"
@@ -69,14 +68,7 @@ void Game::handleEvent(const InputEvent& e){
 
 
 int32_t Game::loadResources(){
-	const std::array<std::string, COUNT> filePaths ={
-			"../resources/up.png",
-			"../resources/down.png",
-			"../resources/left.png",
-			"../resources/right.png",
-			"../resources/press_keys.png",
-			"../resources/layer_2.png"
-	};
+
 
 	for(int32_t i = 0; i < COUNT; ++i){
 		if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePaths[i], _imageSurfaces[i])){

@@ -23,10 +23,22 @@ static void populateMonitorConfig(MonitorWindowCfg& cfg){
 }
 
 
+static void populateGameConfig(GameCfg& cfg){
+
+	cfg.imgPaths[UP] = "../resources/up.png";
+	cfg.imgPaths[DOWN] = "../resources/down.p
+	cfg.imgPaths[RIGHT] = "../resources/right.png";
+	cfg.imgPaths[LEFT] = "../resources/left.png";
+	cfg.imgPaths[PRESS_KEYS] = "../resources/press_keys.png";
+	cfg.imgPaths[LAYER_2] = "../resources/layer_2.png";
+}
+
+
 EngineConfig EngineConfigLoader::loadConfig(){
 	EngineConfig cfg;
 
 	populateMonitorConfig(cfg.windowCfg);
+	populateGameConfig(cfg.gameCfg);
 
 	return cfg;
 }

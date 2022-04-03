@@ -10,6 +10,7 @@
 
 //Own includes
 #include "sdl_utils/MonitorWindow.h"
+#include "Game/config/GameCfg.h"
 
 //Forward Declaration
 
@@ -17,7 +18,7 @@
 struct EngineConfig{
 	MonitorWindowCfg windowCfg;
 	//soon to populate other configs
-
+	GameCfg gameCfg;
 };
 
 
