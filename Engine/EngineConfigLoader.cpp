@@ -26,7 +26,7 @@ static void populateMonitorConfig(MonitorWindowCfg& cfg){
 static void populateGameConfig(GameCfg& cfg){
 
 	cfg.imgPaths[UP] = "../resources/up.png";
-	cfg.imgPaths[DOWN] = "../resources/down.p
+	cfg.imgPaths[DOWN] = "../resources/down.png";
 	cfg.imgPaths[RIGHT] = "../resources/right.png";
 	cfg.imgPaths[LEFT] = "../resources/left.png";
 	cfg.imgPaths[PRESS_KEYS] = "../resources/press_keys.png";

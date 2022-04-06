@@ -43,6 +43,7 @@ add_executable(
 	
 	${_BASE_DIR}/Game/Game.h
 	${_BASE_DIR}/Game/Game.cpp
+	${_BASE_DIR}/Game/config/GameCfg.h
 	
 	${_BASE_DIR}/sdl_utils/SDLLoader.h
 	${_BASE_DIR}/sdl_utils/SDLLoader.cpp 

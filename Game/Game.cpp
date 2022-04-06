@@ -13,8 +13,8 @@
 #include "sdl_utils/InputEvent.h"
 
 
-int32_t Game::init(){
-	if (EXIT_SUCCESS != loadResources()){	//load the resources in the window
+int32_t Game::init(const GameCfg& cfg){
+	if (EXIT_SUCCESS != loadResources(cfg.imgPaths)){	//load the resources in the window
 			std::cerr << "loadResources() failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
@@ -67,7 +67,7 @@ void Game::handleEvent(const InputEvent& e){
 }
 
 
-int32_t Game::loadResources(){
+int32_t Game::loadResources(const std::unordered_map<Images, std::string>& res){
 
 
 	for(int32_t i = 0; i < COUNT; ++i){

@@ -10,7 +10,7 @@
 //3rd-party includes
 
 //Own includes
-
+#include "Game/config/GameCfg.h"
 
 //Forward Declaration
 struct SDL_Surface;
@@ -21,7 +21,7 @@ struct InputEvent;
 class Game {
 public:
 
-	int32_t init();
+	int32_t init(const GameCfg& cfg);
 	void deinit();
 	void draw(std::vector<SDL_Surface*>& outImages);
 	void handleEvent(const InputEvent& e);
@@ -29,7 +29,7 @@ public:
 private:
 
 
-	int32_t loadResources();
+	int32_t loadResources(const std::unordered_map<Images, std::string>& res);
 
 	//game specific logic
 	SDL_Surface* _currChosenImage = nullptr;	//the image we are presenting atm
