@@ -69,14 +69,15 @@ void Game::handleEvent(const InputEvent& e){
 
 int32_t Game::loadResources(const std::unordered_map<Images, std::string>& res){
 
+for(const auto& pair : res){
 
-	for(int32_t i = 0; i < COUNT; ++i){
-		if(EXIT_SUCCESS != Texture::createSurfaceFromFile(filePaths[i], _imageSurfaces[i])){
-			std::cerr << "createSurfaceFromFile failed for file : " << filePaths[i] << std::endl;
+	const auto resId = pair.first;
+	const auto& resLocation = pair.second;
+
+	if(EXIT_SUCCESS != Texture::createSurfaceFromFile(resLocation, _imageSurfaces[resId])){
+			std::cerr << "createSurfaceFromFile failed for file : " << resLocation << std::endl;
 		return EXIT_FAILURE;
 		}
-
-	}
-
+}
 	return EXIT_SUCCESS;
 }

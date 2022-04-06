@@ -30,7 +30,7 @@ int32_t Engine::init(const EngineConfig& cfg){
 	}
 
 
-	if (EXIT_SUCCESS != _game.init()){	//load the resources in the window
+	if (EXIT_SUCCESS != _game.init(cfg.gameCfg)){	//load the resources in the window
 			std::cerr << "_game.init() failed." << std::endl;
 			return EXIT_FAILURE;
 	}
