@@ -32,7 +32,11 @@ void Game::deinit(){
 }
 
 void Game::draw(std::vector<SDL_Surface*>& outImages){
+	for(int i = 0; i <20; i++){
 	outImages.push_back(_currChosenImage);
+	outImages.push_back(_imageSurfaces[LAYER_2]);
+
+	}
 }
 
 void Game::handleEvent(const InputEvent& e){

@@ -10,7 +10,6 @@
 
 //Own includes
 
-
 //Forward Declaration
 
 enum Images{
