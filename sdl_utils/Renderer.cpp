@@ -6,16 +6,7 @@
 //C++ system includes
 
 //3rd-party includes
+#include <SDL_render.h>
 
 //Own includes
-
-
-Renderer::Renderer() {
-	// TODO Auto-generated constructor stub
-
-}
-
-Renderer::~Renderer() {
-	// TODO Auto-generated destructor stub
-}
 
