@@ -21,9 +21,9 @@ class Renderer {
 
 	int32_t init(SDL_Window * window);
 	void deinit();
-	void clearScreen();
-	void finishFrame();
-	void renderTexture(SDL_Texture* texture);
+	void clearScreen();		//clear the old frame
+	void finishFrame();		//pointer swap
+	void renderTexture(SDL_Texture* texture); //for drawing GPU primitives
 private:
 	SDL_Renderer *_sdlRenderer = nullptr;
 };
