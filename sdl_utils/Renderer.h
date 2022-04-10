@@ -19,6 +19,16 @@ struct SDL_Window;
 class Renderer {
 	//forbid the copy/move constructors and assignment operators
 
+	Renderer() = default;
+//	 ~Renderer();
+
+	Renderer(const Renderer& other) = delete;//forbid copy/assignment constructor
+	Renderer(Renderer&& other) = delete;//forbid the move constructor
+
+	Renderer& operator=(const Renderer& other) = delete;
+	Renderer& operator=(Renderer&& other) = delete;
+
+
 	int32_t init(SDL_Window * window);
 	void deinit();
 	void clearScreen();		//clear the old frame
