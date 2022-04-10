@@ -15,8 +15,8 @@
 /*
 
 
-SDL_RenderCopy()
-SDL_RenderPresent()*/
+
+*/
 
 
 
@@ -61,11 +61,11 @@ void Renderer::clearScreen(){
 }
 
 void Renderer::finishFrame(){
-
+	SDL_RenderPresent(_sdlRenderer);	//will swap the pointers
 }
 
-void Renderer::renderTexture(SDL_Texture* texture){
-
+void Renderer::renderTexture(SDL_Texture* texture){//SDL_Texture is a primitive we are drawing
+	SDL_RenderCopy(_sdlRenderer, texture, nullptr, nullptr);
 }
 
 
