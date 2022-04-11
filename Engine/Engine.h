@@ -12,6 +12,7 @@
 //Own includes
 #include "Game/Game.h"
 #include "sdl_utils/MonitorWindow.h"
+#include "sdl_utils/Renderer.h"
 #include "sdl_utils/InputEvent.h"
 
 //Forward Declaration
@@ -36,6 +37,7 @@ private:
 
 	MonitorWindow _window;
 	InputEvent _event;
+	Renderer _renderer;
 	SDL_Surface* _screenSurface = nullptr;
 	Game _game;
 };
