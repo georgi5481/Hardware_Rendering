@@ -23,7 +23,7 @@ int32_t Engine::init(const EngineConfig& cfg){
 			return EXIT_FAILURE;
 	}
 
-	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){
+	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){	//load the resources in the window
 			std::cerr << "InputEvent failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
