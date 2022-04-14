@@ -18,12 +18,12 @@
 #include "Engine/EngineConfigLoader.h"
 
 int32_t Engine::init(const EngineConfig& cfg){
-	if (EXIT_SUCCESS != _window.init(cfg.windowCfg)){	//load the resources in the window
+	if (EXIT_SUCCESS != _window.init(cfg.windowCfg)){
 			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;
 			return EXIT_FAILURE;
 	}
 
-	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){	//load the resources in the window
+	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){./
 			std::cerr << "InputEvent failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
