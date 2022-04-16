@@ -46,12 +46,7 @@ void MonitorWindow::updateWindowSurface(){
 	}
 
 }
-
-SDL_Surface* MonitorWindow::getWindowSurface(){
-	SDL_Surface* screenSurface = SDL_GetWindowSurface(_window);	//make the window
-		if(nullptr == screenSurface){		//check if the window was correctly instanced
-			std::cerr << "SDL_GetWindowSurface() failed. Reason: " << SDL_GetError() << std::endl;
-			return nullptr;
-		}
-		return screenSurface;
+SDL_Window* MonitorWindow::getWindow(){
+	return _window;
 }
+

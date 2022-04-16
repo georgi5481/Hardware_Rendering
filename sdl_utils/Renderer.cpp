@@ -65,6 +65,10 @@ void Renderer::finishFrame(){
 }
 
 void Renderer::renderTexture(SDL_Texture* texture){//SDL_Texture is a primitive we are drawing
+	/*first argument - The renderer which should copy parts of a texture
+	 * second - The source texture
+	 * third - NULL for the entire texture to be displayed
+	 * fourth - NULL for the entire rendering target*/
 	SDL_RenderCopy(_sdlRenderer, texture, nullptr, nullptr);
 }
 

@@ -38,7 +38,7 @@ private:
 	MonitorWindow _window;
 	InputEvent _event;
 	Renderer _renderer;
-	SDL_Surface* _screenSurface = nullptr;
+
 	Game _game;
 };
 

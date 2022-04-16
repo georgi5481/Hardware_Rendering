@@ -23,7 +23,7 @@ int32_t Engine::init(const EngineConfig& cfg){
 			return EXIT_FAILURE;
 	}
 
-	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){./
+	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){
 			std::cerr << "InputEvent failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
@@ -83,7 +83,7 @@ void Engine::drawFrame(){
 
 
 	for(auto& image : images){
-		SDL_BlitSurface(image, nullptr, _screenSurface, nullptr);
+	//	SDL_BlitSurface(image, nullptr, _screenSurface, nullptr);
 
 	}
 
