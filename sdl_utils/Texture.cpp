@@ -29,13 +29,11 @@ int32_t Texture::createSurfaceFromFile(const std::string& filePath, SDL_Surface*
 
 int32_t Texture::createTextureFromFile(const std::string& filePath,SDL_Texture*& outTexture){
 
+	SDL_Surface* surface = nullptr;
+	if(EXIT_SUCCESS != createSurfaceFromFile(filePath, surface)){
+			std::cerr << "createSurfaceFromFile() failed for filePath" << filePath << std::endl;
+		}
 
-//	outSurface = IMG_Load(filePath.c_str()); //load the file with the path
-//
-//	if(outSurface == nullptr){	//check if loading the file went well
-//		std::cerr << "SDL_LoadBMP failed. Reason: " << SDL_GetError() << std::endl;
-//		return EXIT_FAILURE;
-//	}
 	return EXIT_SUCCESS;
 }
 
@@ -61,6 +59,9 @@ int32_t Texture::createTextureFromSurface(SDL_Surface*& InOutSurface, SDL_Textur
 	if(outTexture == nullptr){
 				outTexture = nullptr;
 	}
+
+	freeSurface(InOutSurface);
+
 	return EXIT_SUCCESS;
 }
 
