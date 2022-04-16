@@ -13,6 +13,7 @@
 
 //Forward Declaration
 struct SDL_Surface;
+struct SDL_Texture;
 
 
 class Texture {

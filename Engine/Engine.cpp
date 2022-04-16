@@ -8,8 +8,7 @@
 #include<iostream>
 
 //3rd-party includes
-#include<SDL_surface.h>
-#include<thread>
+//#include<thread>
 
 //Own includes
 #include "Engine/config/EngineConfig.h"
@@ -19,11 +18,11 @@
 
 int32_t Engine::init(const EngineConfig& cfg){
 	if (EXIT_SUCCESS != _window.init(cfg.windowCfg)){	//load the resources in the window
-			std::cerr << "loadResources() failed. Reason: " << SDL_GetError() << std::endl;
+			std::cerr << "loadResources() failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
 
-	if (EXIT_SUCCESS != _renderer.init(_window.getWindowSurface())){
+	if (EXIT_SUCCESS != _renderer.init(_window.getWindow())){
 			std::cerr << "InputEvent failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
@@ -47,10 +46,11 @@ return EXIT_SUCCESS;
 
 
 
-void Engine::deinit(){
+void Engine::deinit(){	//always deinitialise backwards according to initialising
 	_game.deinit();
-	_window.deinit();
 	_event.deinit();
+	_renderer.deinit();
+	_window.deinit();
 }
 
 void Engine::start(){
@@ -76,15 +76,12 @@ while(true){
 
 void Engine::drawFrame(){
 
-	std::vector<SDL_Surface*> images;
+	std::vector<SDL_Texture*> images;
 
 	_game.draw(images);
-	_screenSurface = _window.getWindowSurface();
-
 
 	for(auto& image : images){
-	//	SDL_BlitSurface(image, nullptr, _screenSurface, nullptr);
-
+	_renderer.renderTexture(image);
 	}
 
 		_window.updateWindowSurface();
