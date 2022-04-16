@@ -24,7 +24,10 @@ public:
 	 static int32_t createSurfaceFromFile(const std::string& filePath,
 			 	 	 	 	 	 	 	 SDL_Surface*& outSurface);	//returning int32_t as an error message.
 	 static int32_t createTextureFromFile(const std::string& filePath,
-			 	 	 	 	 	 	 	 SDL_Texture*& outTexture);	//returning int32_t as an error message.
+			 	 	 	 	 	 	 	 SDL_Texture*& outTexture);
+
+	 static int32_t createTextureFromSurface(SDL_Surface*& InOutSurface,
+				 	 	 	 	 	 	 	 SDL_Texture*& outTexture);
 
 
 	 static void freeSurface(SDL_Surface*& outSurface);

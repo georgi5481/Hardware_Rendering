@@ -44,3 +44,12 @@ static void Texture::freeTexture(SDL_Texture*& outTexture){
 	}
 }
 
+
+int32_t Texture::createTextureFromSurface(SDL_Surface*& InOutSurface, SDL_Texture*& outTexture){
+
+}
+
+static void Texture::freeTexture(SDL_Texture*& outTexture){
+
+}
+
