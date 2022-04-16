@@ -13,13 +13,10 @@
 //Own includes
 
 //Forward Declaration
-
-
 struct SDL_Surface;
+static SDL_Renderer* gRenderer = nullptr;
 
-
-int32_t Texture::createSurfaceFromFile(const std::string& filePath,
-		 	 	 	 	 	 	 	 SDL_Surface*& outSurface){
+int32_t Texture::createSurfaceFromFile(const std::string& filePath, SDL_Surface*& outSurface){
 
 	outSurface = IMG_Load(filePath.c_str()); //load the file with the path
 
@@ -29,6 +26,19 @@ int32_t Texture::createSurfaceFromFile(const std::string& filePath,
 	}
 	return EXIT_SUCCESS;
 }
+
+int32_t Texture::createTextureFromFile(const std::string& filePath,SDL_Texture*& outTexture){
+
+
+//	outSurface = IMG_Load(filePath.c_str()); //load the file with the path
+//
+//	if(outSurface == nullptr){	//check if loading the file went well
+//		std::cerr << "SDL_LoadBMP failed. Reason: " << SDL_GetError() << std::endl;
+//		return EXIT_FAILURE;
+//	}
+	return EXIT_SUCCESS;
+}
+
 
 void Texture::freeSurface(SDL_Surface*& outSurface){
 	if(outSurface != nullptr){
@@ -47,9 +57,21 @@ static void Texture::freeTexture(SDL_Texture*& outTexture){
 
 int32_t Texture::createTextureFromSurface(SDL_Surface*& InOutSurface, SDL_Texture*& outTexture){
 
+	outTexture = SDL_CreateTextureFromSurface(gRenderer, InOutSurface);
+	if(outTexture == nullptr){
+				outTexture = nullptr;
+	}
+	return EXIT_SUCCESS;
 }
 
 static void Texture::freeTexture(SDL_Texture*& outTexture){
 
 }
+
+
+static void Texture::setRenderer(SDL_Renderer* renderer){
+	gRenderer = renderer;
+
+}
+
 

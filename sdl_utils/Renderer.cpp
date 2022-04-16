@@ -10,14 +10,7 @@
 #include <SDL_render.h>
 
 //Own includes
-
-
-/*
-
-
-
-*/
-
+#include"sdl_utils/Texture.h"
 
 
 
@@ -41,6 +34,9 @@ int32_t Renderer::init(SDL_Window * window){
 		return EXIT_FAILURE;
 
 	}
+
+
+	Texture::setRenderer(_sdlRenderer);//will basically set another pointer for the renderer outside the class
 
 	return EXIT_SUCCESS;
 }
