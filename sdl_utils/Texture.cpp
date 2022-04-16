@@ -7,9 +7,9 @@
 #include<iostream>
 
 //3rd-party includes
-#include<SDL_surface.h>
+#include <SDL_surface.h>
 #include <SDL_image.h>
-
+#include <SDL_render.h>
 //Own includes
 
 //Forward Declaration
@@ -36,3 +36,11 @@ void Texture::freeSurface(SDL_Surface*& outSurface){
 		outSurface = nullptr;
 	}
 }
+
+static void Texture::freeTexture(SDL_Texture*& outTexture){
+	if(outTexture != nullptr){
+		SDL_DestroyTexture(outTexture);
+		outTexture = nullptr;
+	}
+}
+
