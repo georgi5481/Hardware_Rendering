@@ -43,7 +43,7 @@ void Game::handleEvent(const InputEvent& e){
 		_currChosenImage = _imageSurfaces[PRESS_KEYS];
 	}
 
-	if(TouchEvent::KEYBOARD_PRESS != e.type){	//check if our event is a keyboard event in the first place
+	if(TouchEvent::KEYBOARD_PRESS != e.type){
 		return;
 	}
 
