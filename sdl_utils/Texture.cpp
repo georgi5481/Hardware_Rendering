@@ -24,6 +24,8 @@ int32_t Texture::createSurfaceFromFile(const std::string& filePath, SDL_Surface*
 		std::cerr << "SDL_LoadBMP failed. Reason: " << SDL_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
+
+
 	return EXIT_SUCCESS;
 }
 
@@ -33,6 +35,11 @@ int32_t Texture::createTextureFromFile(const std::string& filePath,SDL_Texture*&
 	if(EXIT_SUCCESS != createSurfaceFromFile(filePath, surface)){
 			std::cerr << "createSurfaceFromFile() failed for filePath" << filePath << std::endl;
 		}
+
+	if(EXIT_SUCCESS != createTextureFromSurface(surface, outTexture)){
+		std::cerr << "createTextureFromSurface() failed for filepath: " << filePath << std::endl;
+		return EXIT_FAILURE;
+	}
 
 	return EXIT_SUCCESS;
 }

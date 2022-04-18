@@ -18,7 +18,7 @@ struct SDL_Window;
 
 class Renderer {
 	//forbid the copy/move constructors and assignment operators
-
+public:
 	Renderer() = default;
 //	 ~Renderer();
 

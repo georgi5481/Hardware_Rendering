@@ -23,7 +23,7 @@ int32_t Engine::init(const EngineConfig& cfg){
 	}
 
 	if (EXIT_SUCCESS != _renderer.init(_window.getWindow())){
-			std::cerr << "InputEvent failed. Reason: " << std::endl;
+			std::cerr << "render init() failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
 
