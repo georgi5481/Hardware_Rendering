@@ -52,7 +52,7 @@ void Texture::freeSurface(SDL_Surface*& outSurface){
 	}
 }
 
-static void Texture::freeTexture(SDL_Texture*& outTexture){
+void Texture::freeTexture(SDL_Texture*& outTexture){
 	if(outTexture != nullptr){
 		SDL_DestroyTexture(outTexture);
 		outTexture = nullptr;
@@ -72,14 +72,10 @@ int32_t Texture::createTextureFromSurface(SDL_Surface*& InOutSurface, SDL_Textur
 	return EXIT_SUCCESS;
 }
 
-static void Texture::freeTexture(SDL_Texture*& outTexture){
-
-}
 
 
-static void Texture::setRenderer(SDL_Renderer* renderer){
+void Texture::setRenderer(SDL_Renderer* renderer){
 	gRenderer = renderer;
-
 }
 
 

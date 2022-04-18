@@ -76,6 +76,8 @@ while(true){
 
 void Engine::drawFrame(){
 
+	_renderer.clearScreen();	//always start with clearing the screen
+
 	std::vector<SDL_Texture*> images;
 
 	_game.draw(images);
@@ -84,9 +86,7 @@ void Engine::drawFrame(){
 	_renderer.renderTexture(image);
 	}
 
-		_window.updateWindowSurface();
-
-
+		_renderer.finishFrame();	//update the image
 }
 
 

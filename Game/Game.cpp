@@ -27,14 +27,13 @@ int32_t Game::init(const GameCfg& cfg){
 
 void Game::deinit(){
 	for(int32_t i = 0; i < COUNT; ++i){
-		Texture::freeSurface(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
+		Texture::freeTexture(_imageSurfaces[i]);	//have to free the surface otherwise we have a memory leak
 	}
 }
 
 void Game::draw(std::vector<SDL_Texture*>& outImages){
 	for(int i = 0; i <20; i++){			//remove this later on
 		outImages.push_back(_currChosenImage);
-	outImages.push_back(_imageSurfaces[LAYER_2]);
 
 	}
 }
@@ -78,7 +77,7 @@ for(const auto& pair : res){
 	const auto resId = pair.first;
 	const auto& resLocation = pair.second;
 
-	if(EXIT_SUCCESS != Texture::createSurfaceFromFile(resLocation, _imageSurfaces[resId])){
+	if(EXIT_SUCCESS != Texture::createTextureFromFile(resLocation, _imageSurfaces[resId])){
 			std::cerr << "createSurfaceFromFile failed for file : " << resLocation << std::endl;
 		return EXIT_FAILURE;
 		}
