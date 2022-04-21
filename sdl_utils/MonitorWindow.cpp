@@ -34,7 +34,7 @@ MonitorWindow::~MonitorWindow(){
 }
 
 void MonitorWindow::deinit(){
-	if(_window != nullptr){	//shouldn't destroy a nullpointer
+	if(_window != nullptr){
 			SDL_DestroyWindow(_window);
 			_window = nullptr;
 		}
