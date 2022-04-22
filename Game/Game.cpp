@@ -14,7 +14,7 @@
 
 
 int32_t Game::init(const GameCfg& cfg){
-	if (EXIT_SUCCESS != loadResources(cfg.imgPaths)){	//load the resources in the window
+	if (EXIT_SUCCESS != loadResources(cfg.imgPaths)){
 			std::cerr << "loadResources() failed. Reason: " << std::endl;
 			return EXIT_FAILURE;
 	}
