@@ -50,7 +50,7 @@ bool InputEvent::pollEvent(){
 void InputEvent::setEventTypeInternal(){
 	switch(_sdlEvent->type){
 	case EventType::KEYBOARD_PRESS:
-		key = _sdlEvent->key.keysym.sym;
+		key = _sdlEvent->key.keysym.sym;	//will scan the key that was pressed
 		mouseButton = Mouse::UNKNOWN;
 		type = TouchEvent::KEYBOARD_PRESS;
 	break;
