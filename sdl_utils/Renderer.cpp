@@ -15,10 +15,6 @@
 
 
 int32_t Renderer::init(SDL_Window * window){
-	/*giving the SDL_CreateRenderer function:
-	 * 1 the window(pointer) where rendering is displayed,
-	 * 2 setting -1 for using default driver(DiretX in this case)
-	 * 3 A flag for using the hardware acceleration instead of CPU.*/
 
 	constexpr auto unspecifiedDriverId = -1;
 	_sdlRenderer = SDL_CreateRenderer(window, unspecifiedDriverId, SDL_RENDERER_ACCELERATED);
@@ -60,11 +56,7 @@ void Renderer::finishFrame(){
 	SDL_RenderPresent(_sdlRenderer);	//will swap the pointers
 }
 
-void Renderer::renderTexture(SDL_Texture* texture){//SDL_Texture is a primitive we are drawing
-	/*first argument - The renderer which should copy parts of a texture
-	 * second - The source texture
-	 * third - NULL for the entire texture to be displayed
-	 * fourth - NULL for the entire rendering target*/
+void Renderer::renderTexture(SDL_Texture* texture){
 	SDL_RenderCopy(_sdlRenderer, texture, nullptr, nullptr);
 }
 
